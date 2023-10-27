@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  docker-nginx:
+    container_name: docker-nginx
+    build: ./frontdevsu/  
+    ports:
+      - "90:80"
+    command: nginx -g 'daemon off;'
+      
+  postgres-standalone:
+    image: postgres:15.1
+    container_name: postgres-standalone
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: devsudb
+    volumes:
+      - ./backdevsu/src/main/resources/db/BaseDatos.sql:/docker-entrypoint-initdb.d/init-script.sql
+  
+  springboot-docker-container:
+    image: springboot-docker-container
+    container_name: springboot-docker-container
+    ports:
+      - 9091:9091
+    build:
+      context: ./backdevsu/
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres-standalone

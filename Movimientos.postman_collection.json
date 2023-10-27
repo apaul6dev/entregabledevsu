@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "b90b4859-0149-4dd0-a9e5-9cc2a1e40a31",
+		"name": "Movimientos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4987025"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tipo\":\"retiro\",\n    \"valor\":100.5,\n    \"cuenta\":{\n        \"idCuenta\":1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/movimientos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"movimientos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/movimientos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"movimientos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllByCuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/movimientos/getAllByCuenta/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"movimientos",
+						"getAllByCuenta",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reporteJSON",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/movimientos/generateJSONReport?finicial=20/10/2023&ffinal=31/10/2023&idCuenta=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"movimientos",
+						"generateJSONReport"
+					],
+					"query": [
+						{
+							"key": "finicial",
+							"value": "20/10/2023"
+						},
+						{
+							"key": "ffinal",
+							"value": "31/10/2023"
+						},
+						{
+							"key": "idCuenta",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reportePDF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/movimientos/generatePDFReport?finicial=20/10/2023&ffinal=25/10/2023&idCuenta=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"movimientos",
+						"generatePDFReport"
+					],
+					"query": [
+						{
+							"key": "finicial",
+							"value": "20/10/2023"
+						},
+						{
+							"key": "ffinal",
+							"value": "25/10/2023"
+						},
+						{
+							"key": "idCuenta",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
