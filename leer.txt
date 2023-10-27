@@ -4,6 +4,5 @@ Después de ejecutar el Docker compose general, ingresar a:
 
 http://localhost:90
 
-Repositorios:
-https://github.com/apaul6dev/frontdevsu.git
-https://github.com/apaul6dev/backdevsu.git
+Repositorio:
+https://github.com/apaul6dev/entregabledevsu.git
