@@ -1,0 +1,19 @@
+<div class="container">
+  <header>
+    <h2>Banco Pichinca</h2>
+  </header>
+  <div class="content">
+    <nav class="sidenav">
+      <ul>
+        <li><a routerLink="/clientes">Clientes</a></li>
+        <li><a routerLink="/cuentas">Cuentas</a></li>
+        <li><a routerLink="/movimientos/0">Movimientos</a></li>
+        <li><a routerLink="/reportes">Reportes</a></li>
+      </ul>
+    </nav>
+    <main>
+      <app-mensajes></app-mensajes>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

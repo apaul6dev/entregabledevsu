@@ -1,0 +1,19 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: adevsu
+  datasource:
+    url: jdbc:postgresql://postgres-standalone:5432/devsudb
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

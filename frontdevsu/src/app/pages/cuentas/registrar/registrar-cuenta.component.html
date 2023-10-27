@@ -1,0 +1,54 @@
+<div class="registro-container">
+    <h2>{{accion}}</h2>
+
+    <form [formGroup]="registroForm" (ngSubmit)="submitRegistro()">
+
+        <div class="form-group">
+            <label for="idPersona">Seleccione el Cliente:</label>
+            <select id="idPersona" formControlName="idPersona">
+                <option *ngFor="let dato of listaClientes" [value]="dato.idPersona">
+                    {{ dato.identificacion }} / {{dato.nombre }}
+                </option>
+            </select>
+            <span class="error-message" *ngIf="registroForm.controls.idPersona.errors?.required">
+                Valor obligatorio
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="numeroCuenta">Número Cuenta:</label>
+            <input type="number" id="numeroCuenta" formControlName="numeroCuenta">
+            <span class="error-message" *ngIf="registroForm.controls.numeroCuenta.errors?.required">
+                Valor obligatorio
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="tipoCuenta">Seleccione el tipo de cuenta:</label>
+            <select id="tipoCuenta" formControlName="tipoCuenta">
+                <option *ngFor="let dato of tiposCuenta" [value]="dato">{{ dato }}</option>
+            </select>
+            <span class="error-message" *ngIf="registroForm.controls.tipoCuenta.errors?.required">Valor obligatorio</span>
+        </div>
+
+        <div class="form-group">
+            <label for="saldoInicial">Saldo Inicial:</label>
+            <input type="text" id="saldoInicial" formControlName="saldoInicial" name="datoSeleccionado">
+            <span class="error-message" *ngIf="registroForm.controls.saldoInicial.errors?.required">
+                Valor obligatorio
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Seleccione el Estado:</label>
+            <select id="estado" formControlName="estado">
+              <option *ngFor="let dato of tiposEstado" [value]="dato">{{ dato }}</option>
+            </select>
+            <span class="error-message" *ngIf="registroForm.controls.estado.errors?.required">Valor obligatorio</span>
+          </div>
+
+        <button type="submit">Guardar</button>
+        <a class="blue-button" routerLink="/cuentas">Atrás</a>
+    </form>
+
+</div>

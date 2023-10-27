@@ -1,0 +1,4 @@
+<div *ngIf="exito || error || warning" [ngClass]="{'success-message': exito, 'error-message': error,  'warning-message': warning}">
+    <button (click)="cerrar()" class="transparent-button">X</button>
+    <p>{{mensaje.mensaje}}</p>
+</div>
